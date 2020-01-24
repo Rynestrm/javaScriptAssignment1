@@ -19,6 +19,8 @@ let speakButton4 = document.querySelector('.button4');
 let speakButton5 = document.querySelector('.button5');
 let randomize = document.querySelector('.randomize');
 let repeat = document.querySelector('.repeat');
+let reset = document.querySelector('.reset');
+
 
 
 /* Functions
@@ -28,6 +30,11 @@ function speakNow(string) {
 	let utterThis = new SpeechSynthesisUtterance(string);
 	// Actually speak the text
 	synth.speak(utterThis);
+}
+
+function resetStory() {
+	document.querySelector('.story').innerHTML = ' Random Story ';
+	console.log("it works");
 }
 
 /* Event Listeners
@@ -40,7 +47,7 @@ speakButton1.onclick = function() {
 	let bttnLabel = document.querySelector('.button1');
 	bttnLabel.innerHTML = speak1;
 	let storyPart = speak1;
-	document.querySelector('p').innerHTML = storyPart;
+	document.querySelector('.story').innerHTML = storyPart;
 }
 
 speakButton2.onclick = function() {
@@ -49,7 +56,7 @@ speakButton2.onclick = function() {
 	let bttnLabel = document.querySelector('.button2');
 	bttnLabel.innerHTML = speak2;
 	let storyPart = speak2;
-	document.querySelector('p').innerHTML += ' ' + speak2;
+	document.querySelector('.story').innerHTML += ' ' + speak2;
 }
 
 speakButton3.onclick = function() {
@@ -57,7 +64,7 @@ speakButton3.onclick = function() {
 	speakNow(speak3);
 	let bttnLabel = document.querySelector('.button3');
 	bttnLabel.innerHTML = speak3;
-	document.querySelector('p').innerHTML += ' ' + speak3;
+	document.querySelector('.story').innerHTML += ' ' + speak3;
 }
 
 speakButton4.onclick = function() {
@@ -65,7 +72,7 @@ speakButton4.onclick = function() {
 	speakNow(speak4);
 	let bttnLabel = document.querySelector('.button4');
 	bttnLabel.innerHTML = speak4;
-	document.querySelector('p').innerHTML += ' ' + speak4;
+	document.querySelector('.story').innerHTML += ' ' + speak4;
 }
 
 speakButton5.onclick = function() {
@@ -73,7 +80,7 @@ speakButton5.onclick = function() {
 	speakNow(speak5);
 	let bttnLabel = document.querySelector('.button5');
 	bttnLabel.innerHTML = speak5;
-	document.querySelector('p').innerHTML += ' ' + speak5;
+	document.querySelector('.story').innerHTML += ' ' + speak5;
 }
 // randomizes each string for a new unique output
 randomize.onclick = function() {
@@ -85,11 +92,15 @@ randomize.onclick = function() {
 	let randomStory = speak1 + speak2 + speak3 + speak4 + speak5;
 	speakNow(randomStory);
 	randomStory = speak1 +' '+ speak2 +' '+ speak3 +' '+ speak4 +' '+ speak5;
-	document.querySelector('p').innerHTML = randomStory;
+	document.querySelector('.story').innerHTML = randomStory;
 }
 
 // repeats whatever is displayed on screen in the p tag
 repeat.onclick = function() {
-	let repeat = document.querySelector('p').innerHTML
+	let repeat = document.querySelector('.story').innerHTML;
 	speakNow(repeat);
+}
+
+reset.onclick = function() {
+	resetStory()
 }
