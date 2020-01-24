@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* Assignment 1 | COMP1073 Client-Side JavaScript */
+
+body {
+  background: linear-gradient(90deg, #ff0000a6 50%, #0000ffa6 50%);
+  background-repeat: repeat-y;
+  background-size: ;
+}
+
+h1 {
+  text-align: center;
+}
+
+section {
+  margin: 60px 0;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+p {
+  text-align: center;
+  font-size: 30px;
+}
