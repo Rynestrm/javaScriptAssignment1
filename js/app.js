@@ -1,6 +1,6 @@
 // Assignment 1 | COMP1073 Client-Side JavaScript
 
-/* letiables
+/* variables
 -------------------------------------------------- */
 // Create a new speechSynthesis object
 let synth = window.speechSynthesis;
@@ -11,19 +11,13 @@ let option3 = ['A Funny', 'A Scary', 'A Goofy', 'A Slimy', 'A Barking', 'A Fat']
 let option4 = ['Goat', 'Monkey', 'Fish', 'Cow', 'Frog', 'Bug', 'Worm' ];
 let option5 = ['On The Moon', 'On The Chair', 'In My Spaghetti', 'In My Soup', 'On The Grass', 'In My Shoes'];
 
-// variables for each button
+// global variables for each button
 let speakButton1 = document.querySelector('.button1');
-
 let speakButton2 = document.querySelector('.button2');
-
 let speakButton3 = document.querySelector('.button3');
-
 let speakButton4 = document.querySelector('.button4');
-
 let speakButton5 = document.querySelector('.button5');
-
 let randomize = document.querySelector('.randomize');
-
 let repeat = document.querySelector('.repeat');
 
 
@@ -39,16 +33,14 @@ function speakNow(string) {
 /* Event Listeners
 -------------------------------------------------- */
 // Onclick handler for the button that speaks the text contained in the above let textToSpeak
+// each button will generate a new variable from the string on every click
 speakButton1.onclick = function() {
 	let speak1 = option1[Math.floor(Math.random()*option1.length)];
 	speakNow(speak1);
 	let bttnLabel = document.querySelector('.button1');
 	bttnLabel.innerHTML = speak1;
-	// testing section
 	let storyPart = speak1;
 	document.querySelector('p').innerHTML = storyPart;
-
-	// testing section done
 }
 
 speakButton2.onclick = function() {
@@ -65,7 +57,6 @@ speakButton3.onclick = function() {
 	speakNow(speak3);
 	let bttnLabel = document.querySelector('.button3');
 	bttnLabel.innerHTML = speak3;
-
 	document.querySelector('p').innerHTML += ' ' + speak3;
 }
 
@@ -75,7 +66,6 @@ speakButton4.onclick = function() {
 	let bttnLabel = document.querySelector('.button4');
 	bttnLabel.innerHTML = speak4;
 	document.querySelector('p').innerHTML += ' ' + speak4;
-
 }
 
 speakButton5.onclick = function() {
@@ -84,9 +74,8 @@ speakButton5.onclick = function() {
 	let bttnLabel = document.querySelector('.button5');
 	bttnLabel.innerHTML = speak5;
 	document.querySelector('p').innerHTML += ' ' + speak5;
-
 }
-
+// randomizes each string for a new unique output
 randomize.onclick = function() {
 	let speak1 = option1[Math.floor(Math.random()*option1.length)];
 	let speak2 = option2[Math.floor(Math.random()*option2.length)];
@@ -97,9 +86,9 @@ randomize.onclick = function() {
 	speakNow(randomStory);
 	randomStory = speak1 +' '+ speak2 +' '+ speak3 +' '+ speak4 +' '+ speak5;
 	document.querySelector('p').innerHTML = randomStory;
-
 }
 
+// repeats whatever is displayed on screen in the p tag
 repeat.onclick = function() {
 	let repeat = document.querySelector('p').innerHTML
 	speakNow(repeat);
